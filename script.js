@@ -8,7 +8,7 @@ class Clicker {
         this.bottomBlock = document.getElementById('bottom-block');
         this.startScreen = document.getElementById('start-screen');
         this.startButton = document.getElementById('start-button');
-        this.clickCountDisplay = document.getElementById('clickCountDisplay');
+        this.gameScreen = document.getElementById('game-screen');
 
         this.levels = [
             { level: 1, pointsNeeded: 30 },
@@ -19,10 +19,15 @@ class Clicker {
         ];
 
         this.currentLevel = 1;
-        this.setLevelDisplay();
 
-        this.dot.addEventListener('click', () => this.handleDotClick());
-        this.startButton.addEventListener('click', () => this.startGame());
+        if (this.dot) {
+            this.dot.addEventListener('click', () => this.handleDotClick());
+        }
+
+        if (this.startButton) {
+            this.startButton.addEventListener('click', () => this.startGame());
+        }
+        this.setLevelDisplay();
     }
 
     handleDotClick() {
@@ -78,8 +83,8 @@ class Clicker {
     }
 
     startGame() {
-        // Приховуємо екран початку гри та показуємо елементи гри
-        this.startScreen.style.display = 'none';
+        this.startScreen.style.display = 'none'; // Приховуємо екран початку гри
+        this.gameScreen.style.display = 'block'; // Показуємо ігровий екран
         this.showGameElements();
     }
 
@@ -89,10 +94,13 @@ class Clicker {
     }
 
     showGameElements() {
-        this.topBlock.style.display = 'block';
-        this.bottomBlock.style.display = 'block';
+        if (this.topBlock && this.bottomBlock) {
+            this.topBlock.style.display = 'block';
+            this.bottomBlock.style.display = 'block';
+        }
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const clicker = new Clicker();

@@ -1,30 +1,17 @@
+/* Залишаємо стилі для головного меню */
 body {
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Gabarito', cursive;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: darkcyan;
 }
 
 #game-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    border: 5px solid black;
-    box-sizing: border-box;
-}
-
-#start-screen {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #333;
-    color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    z-index: 1;
+    height: 100vh; /* Займає весь доступний висотний простір екрану */
 }
 
 #game-title {
@@ -55,4 +42,54 @@ body {
 
 #start-button:focus, #settings-button:focus, #exit-button:focus {
     outline: none;
+}
+
+/* Стилі для ігрового поля та точки */
+#game-field {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #000;
+    margin-top: 20px;
+    position: relative;
+    display: flex; /* Додаємо flex-контейнер для центрування */
+    justify-content: center; /* Центруємо вміст по горизонталі */
+    align-items: center; /* Центруємо вміст по вертикалі */
+}
+
+#dot {
+    width: 40px;
+    height: 40px;
+    background-color: blueviolet;
+    border-radius: 50%;
+    position: absolute;
+    display: none;
+    border: 2px solid white;
+}
+
+/* Стилі для елементів ігрового екрану */
+#game-screen {
+    display: none;
+}
+
+#top-block {
+    text-align: center;
+    padding: 20px;
+}
+
+#clickCountDisplay {
+    font-size: 24px;
+}
+
+#levelDisplay {
+    font-size: 24px;
+}
+
+#clickCount {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#progressFill {
+    height: 20px;
+    background-color: green;
 }
